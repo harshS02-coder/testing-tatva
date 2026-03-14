@@ -77,9 +77,29 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -e
+
+            echo "📦 Moving to project directory"
             cd ~/testing-tatva
+
+            echo "📥 Pulling latest code"
             git pull origin main
-            docker stop myapp || true
-            docker rm myapp || true
-            docker build -t myapp .
-            docker run -d -p 3000:80 --name myapp myapp
+
+            echo "🛑 Stopping old container if exists"
+            docker rm -f myapp || true
+
+            echo "🧹 Cleaning unused Docker images"
+            docker image prune -f
+
+            echo "🏗 Building new Docker image"
+            docker build -t myapp:latest .
+
+            echo "🚀 Starting new container"
+            docker run -d \
+              --name myapp \
+              -p 3000:80 \
+              --restart unless-stopped \
+              myapp:latest
+
+            echo "📊 Running containers:"
+            docker ps
