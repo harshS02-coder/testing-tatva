@@ -1,0 +1,9 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="40" fill="#E6E2DA"/>
+  <circle cx="320" cy="190" r="114" fill="#D6B98A"/>
+  <circle cx="320" cy="190" r="76" fill="#EEDFC4"/>
+  <rect x="302" y="244" width="36" height="176" rx="18" fill="#554A43"/>
+  <rect x="204" y="412" width="232" height="28" rx="14" fill="#554A43"/>
+  <ellipse cx="320" cy="458" rx="154" ry="36" fill="#D0CAC0"/>
+  <text x="66" y="578" fill="#251E18" font-family="Arial, sans-serif" font-size="34" font-weight="700">Halo Desk Lamp</text>
+</svg>
